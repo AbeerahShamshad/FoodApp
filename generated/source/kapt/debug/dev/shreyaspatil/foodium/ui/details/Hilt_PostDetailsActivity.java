@@ -1,0 +1,66 @@
+package dev.shreyaspatil.foodium.ui.details;
+
+import android.os.Bundle;
+import androidx.annotation.CallSuper;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.viewbinding.ViewBinding;
+import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories;
+import dagger.hilt.android.internal.managers.ActivityComponentManager;
+import dagger.hilt.internal.GeneratedComponentManager;
+import dagger.hilt.internal.UnsafeCasts;
+import dev.shreyaspatil.foodium.ui.base.BaseActivity;
+import java.lang.Object;
+import java.lang.Override;
+import javax.annotation.Generated;
+
+/**
+ * A generated base class to be extended by the @dagger.hilt.android.AndroidEntryPoint annotated class. If using the Gradle plugin, this is swapped as the base class via bytecode transformation.
+ */
+@Generated("dagger.hilt.android.processor.internal.androidentrypoint.ActivityGenerator")
+public abstract class Hilt_PostDetailsActivity<VM extends ViewModel, VB extends ViewBinding> extends BaseActivity<VM, VB> implements GeneratedComponentManager<Object> {
+  private volatile ActivityComponentManager componentManager;
+
+  private final Object componentManagerLock = new Object();
+
+  @CallSuper
+  @Override
+  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    inject();
+    super.onCreate(savedInstanceState);
+  }
+
+  @Override
+  public final Object generatedComponent() {
+    return componentManager().generatedComponent();
+  }
+
+  protected ActivityComponentManager createComponentManager() {
+    return new ActivityComponentManager(this);
+  }
+
+  protected final ActivityComponentManager componentManager() {
+    if (componentManager == null) {
+      synchronized (componentManagerLock) {
+        if (componentManager == null) {
+          componentManager = createComponentManager();
+        }
+      }
+    }
+    return componentManager;
+  }
+
+  protected void inject() {
+    ((PostDetailsActivity_GeneratedInjector) generatedComponent()).injectPostDetailsActivity(UnsafeCasts.<PostDetailsActivity>unsafeCast(this));
+  }
+
+  @Override
+  public ViewModelProvider.Factory getDefaultViewModelProviderFactory() {
+    ViewModelProvider.Factory factory = DefaultViewModelFactories.getActivityFactory(this);
+    if (factory != null) {
+      return factory;
+    }
+    return super.getDefaultViewModelProviderFactory();
+  }
+}
